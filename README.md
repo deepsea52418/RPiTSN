@@ -38,6 +38,35 @@ Stop NTP service:
 sudo systemctl stop systemd-timesyncd
 ```
 
+```
+
+# 802.1AS example configuration containing those attributes which
+# differ from the defaults.  See the file, default.cfg, for the
+# complete list of available options.
+#
+[global]
+gmCapable		1
+priority1		248
+priority2		248
+logAnnounceInterval	0
+logSyncInterval		-3
+syncReceiptTimeout	3
+neighborPropDelayThresh	800
+min_neighbor_prop_delay	-20000000
+assume_two_step		1
+path_trace_enabled	1
+follow_up_info		1
+transportSpecific	0x1
+ptp_dst_mac		01:80:C2:00:00:0E
+network_transport	L2
+delay_mechanism		P2P
+
+```
+
+```
+sudo ptp4l -i enp1s0 -f gptp.cfg -m 
+```
+
 ### 2.3 Set up Linux Qdisc ETF Scheduler
 
 The ETF (Earliest TxTime First) qdisc allows applications to control the instant when a packet should be dequeued from the traffic control layer into the netdevice, which makes it possible to schedule packets in a periodic manner.

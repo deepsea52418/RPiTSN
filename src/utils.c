@@ -252,7 +252,8 @@ void sche_single(int fd, const char *address, const int port, uint64_t txtime)
     msg.msg_controllen = sizeof(control_back);
 
     // wait until get the loopback
-    while (recvmsg(fd, &msg, MSG_ERRQUEUE) < 0)
+    int count = 0;
+    while (recvmsg(fd, &msg, MSG_ERRQUEUE) < 0 && count++ < 100)
     {
     }
 
