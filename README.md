@@ -73,17 +73,36 @@ Materials can be found at:
 
 ## 3. Experiment Result
 
-### 3.1 Benchmark
+
+**Delay comparision**
+
+![delay](data/tsn_multihop/06_compare_delay.png)
+
+**Jitter comparision**
+![delay](data/tsn_multihop/06_compare_jitter.png)
+
+**Throughput comparision**
+
+Note: It is clear to see that some packets are lost or delayed when frequency is high for sigel traffic.
+
+![delay](data/qdisc_performance/first_80000.png)
+
+![delay](data/qdisc_performance/first_2000.png)
 
 More results can be found in the data folder.
 
-There is also a bench mark when you send one traffic in different frequency. When the bandwidth is fast like 50us the system will crash down.
-
-### 3.2 Discussion
-
-
 
 ## 4. Future work
+- Determining the cause of the ETF scheduler's inability to support high bandwidth. Its inability to enable out-of-order scheduling could be one of the causes. For instance, packet $f 1$ is planned to transmit at time $t 3$ at time $t 1$ while packet $f 2$ is scheduled to send at time $t_4$ at time $t_2$. When $t_2$ > $t_1$ and $t_4$ < $t_3$, the system crashes.
+
+- Discover a method to support a single traffic with a frequency of 200000Hz that satisfies the following conditions: :
+  - No packet loss.
+  - Delay is bounded within 1us.
+  - Jitter (the time gap between two neighbor packet) is constrained within 1us.
+  
+  Instead of purely using the ETF scheduler, you are allowed to experiment with other strategies like DPDK or OpenFlow.
+
+- Find a means to accommodate more traffic in multiple periods simultaneously, such as three traffics with periods of 50000Hz, 30000Hz, and 70000Hz; ideally, the overall frequency should be greater than 100000 Hz.
 
 
 
