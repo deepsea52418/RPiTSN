@@ -32,17 +32,17 @@ static void wait_rest_of_period(struct period_info *pinfo)
 int main(int argc, char *argv[])
 {
     // setup Conn
-    const char *address = "192.168.0.13";
-    const int port = 54321;
+    const char *address = "192.168.0.33";
+    const int port = 12345;
     const int fd_out = socket(AF_INET, SOCK_DGRAM, 0);
     uint64_t next_time;
+
     if (HW_FLAG)
     {
         setup_adapter(fd_out, "eth0");
     }
     // Make
     setup_sender_sotime(fd_out, "eth0");
-
     setup_sender(fd_out);
 
     // start cyclic task
