@@ -36,6 +36,21 @@ The ETF (Earliest TxTime First) qdisc allows applications to control the instant
 
 Step 1: Configuring the ETF Qdisc following the link [here](https://tsn.readthedocs.io/qdiscs.html#configuring-the-etf-qdisc).
 
+```
+sudo tc qdisc add dev enp4s0 parent root handle 6666 mqprio \
+        num_tc 3 \
+        map 2 2 1 0 2 2 2 2 2 2 2 2 2 2 2 2 \
+        queues 1@0 1@1 2@2 \
+        hw 0
+```
+
+```
+sudo tc qdisc add dev enp4s0 parent 6666:1 etf \
+        clockid CLOCK_TAI \
+        delta 10000 \
+        offload
+```
+
 Some potential issues:
 
 - The wrong configuration for delta parameter might crush down the socket program. It must bound the delay from user space and should be estimated for different machines. This delta parameter must be account into the socket program for scheduling periodic traffic.
