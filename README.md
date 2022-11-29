@@ -30,11 +30,24 @@ Some potential issues:
 - igb driver only supports for specific Linux kernels. During my test that Linux 5.4.0 and Linux 5.17.0 worked normally but 5.14.0 and 5.15.0 failed with GPF error in kernel logs and system got totally freezen. Some related issues can be found at [here](https://bugs.archlinux.org/task/65113).
 - igb driver may occur some error when you install both e1000e driver and igb on same kernel. The reason I guess is e1000e also drives for I210 as a general driver but lacks of several functions.
 
+### 2.2.2 Stop Linux synchronization service
+
+Stop NTP service:
+
+```
+sudo systemctl stop systemd-timesyncd
+```
+
 ### 2.3 Set up Linux Qdisc ETF Scheduler
 
 The ETF (Earliest TxTime First) qdisc allows applications to control the instant when a packet should be dequeued from the traffic control layer into the netdevice, which makes it possible to schedule packets in a periodic manner.
 
 Step 1: Configuring the ETF Qdisc following the link [here](https://tsn.readthedocs.io/qdiscs.html#configuring-the-etf-qdisc).
+
+```
+sudo tc qdisc del dev eth1 root
+```
+
 
 ```
 sudo tc qdisc add dev enp4s0 parent root handle 6666 mqprio \
@@ -53,7 +66,7 @@ sudo tc qdisc add dev enp4s0 parent 6666:1 etf \
 
 Some potential issues:
 
-- The wrong configuration for delta parameter might crush down the socket program. It must bound the delay from user space and should be estimated for different machines. This delta parameter must be account into the socket program for scheduling periodic traffic.
+- The wrong configuration for delta parameter might crush down the socket program. It must bound the delay from user space and should be estimated for different machines. This `delta` parameter must be account into the socket program for scheduling periodic traffic.
 
 Several materials might be helpful:
 
@@ -78,8 +91,12 @@ Note:
 - Parameters:
   - `TIME_DELTA` that has to be adapted with the delay you estimated in Sec 2.3.
   - `DEFAULT_PRIORITY` that has to be adapted with the qdisc configuration you have done in Sec 2.3.
-  -  `BUFFER_LEN` is the length of UDP payload.
+  - `BUFFER_LEN` is the length of UDP payload.
   - `HW_FLAG` should be set as 1 to record HW timestamp.
+  - `USE_TXTIME` should be set as 1 to achieve time-triggered UDP sending.
+
+> Configuration leads to lowest sending jitter on OptiPlex 7090: `qdisc-delta = 100_000`, \
+`TIME_DELTA = 1_000_000`
 
 Materials can be found at:
 

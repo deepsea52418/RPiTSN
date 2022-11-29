@@ -32,8 +32,8 @@ static void wait_rest_of_period(struct period_info *pinfo)
 int main(int argc, char *argv[])
 {
     // setup Conn
-    const char *address = "192.168.0.12";
-    const int port = 43256;
+    const char *address = "192.168.0.33";
+    const int port = 54321;
     const int fd_out = socket(AF_INET, SOCK_DGRAM, 0);
     uint64_t next_time;
 
