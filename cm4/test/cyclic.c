@@ -10,10 +10,10 @@ static void inc_period(struct period_info *pinfo)
 {
     pinfo->next_period.tv_nsec += pinfo->period_ns;
 
-    while (pinfo->next_period.tv_nsec > 1e9)
+    while (pinfo->next_period.tv_nsec > ONESEC)
     {
         pinfo->next_period.tv_sec++;
-        pinfo->next_period.tv_nsec -= 1e9;
+        pinfo->next_period.tv_nsec -= ONESEC;
     }
 }
 
@@ -33,8 +33,9 @@ int main(int argc, char *argv[])
 {
     // setup Conn
     const char *address = "192.168.0.12";
-    const int port = 12345;
+    const int port = 54321;
     const int fd_out = socket(AF_INET, SOCK_DGRAM, 0);
+    uint64_t next_time;
     if (HW_FLAG)
     {
         setup_adapter(fd_out, "enp5s0");
@@ -46,9 +47,8 @@ int main(int argc, char *argv[])
 
     // start cyclic task
     struct period_info pinfo;
-    periodic_task_init(&pinfo, 1e7);
+    periodic_task_init(&pinfo, PERIOD);
     int count = 0;
-    uint64_t next_time;
     while (1)
     {
         printf("[ ---- Iter-%5d ----------------------------- ]\n", count++);

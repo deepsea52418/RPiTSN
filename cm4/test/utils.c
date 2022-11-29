@@ -186,7 +186,7 @@ void send_single(int fd, const char *address, const int port)
         {
             struct timespec *ts =
                 (struct timespec *)CMSG_DATA(cmsg);
-            printf("HD-SEND    TIMESTAMP %ld.%09ld\n", ts[2].tv_sec, ts[2].tv_nsec);
+            printf("HW-SEND    TIMESTAMP %ld.%09ld\n", ts[2].tv_sec, ts[2].tv_nsec);
         }
 
         if (cmsg->cmsg_level == SOL_SOCKET &&
@@ -271,7 +271,7 @@ void sche_single(int fd, const char *address, const int port, __u64 txtime)
         {
             struct timespec *ts =
                 (struct timespec *)CMSG_DATA(cmsg);
-            printf("HD-SEND    TIMESTAMP %ld.%09ld\n", ts[2].tv_sec, ts[2].tv_nsec);
+            printf("HW-SEND    TIMESTAMP %ld.%09ld\n", ts[2].tv_sec, ts[2].tv_nsec);
         }
 
         if (cmsg->cmsg_level == SOL_SOCKET &&
@@ -299,7 +299,6 @@ void recv_single(int fd)
     msg.msg_controllen = sizeof(ctrl);
     iov.iov_base = data;
     iov.iov_len = sizeof(data);
-    struct timespec start;
 
     if (recvmsg(fd, &msg, 0) < 0)
     {

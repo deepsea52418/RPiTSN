@@ -26,14 +26,24 @@
 #define SO_EE_CODE_TXTIME_MISSED 2
 #endif
 
+#ifndef CLOCK_TAI
+#define CLOCK_TAI 11
+#endif
+
 #define BUFFER_LEN 256
 #define HW_FLAG 1
 
 #define USE_TXTIME 1
 #define DEFAULT_PRIORITY 3
 #define TIME_DELTA 100
-#define DEADLINE_MODE SOF_TXTIME_DEADLINE_MODE
-#define RECEIVE_ERROR SOF_TXTIME_REPORT_ERRORS
+#define PERIOD 100000000
+#define ONESEC 1000000000ULL
+
+// #define DEADLINE_MODE SOF_TXTIME_DEADLINE_MODE
+// #define RECEIVE_ERROR SOF_TXTIME_REPORT_ERRORS
+
+#define DEADLINE_MODE 0
+#define RECEIVE_ERROR 0
 
 /* When deadline_mode is set, the qdisc will handle txtime
 with a different semantics, changed from a 'strict'
