@@ -135,23 +135,29 @@ Materials can be found at:
 ## 3. Experiment Result
 
 
-**Delay comparision**
+**Jitter on different End-Station**
 
-![delay](data/tsn_multihop/06_compare_delay.png)
+|        | Device | Packet Loss | Jitter (L7) | Jitter (L2) |
+| ------ | ------ | ----------- | ----------- | ----------- |
+| 1 s    | PC     | 0           | 1.54e-5     | 1.16e-8     |
+|        | CM4    | 0           | 6.58e-6     | 1.10e-8     |
+| 100 ms | PC     | 0.00%       | 1.71e-5     | 1.16e-8     |
+|        | CM4    | 1.02%       | 3.50e-5     | 8.62e-9     |
+| 10 ms  | PC     | 0.03%       | 2.19e-5     | 2.39e-5     |
+|        | CM4    | 1.68%       | 4.14e-5     | 1.27e-8     |
+| 1 ms   | PC     | 5.75%       | 2.13e-5     | 2.24e-5     |
+|        | CM4    | 6.55%       | 1.22e-5     | 1.36e-8     |
+| 100 us | PC     | 50.00%      | 2.22e-5     | 7.03e-9     |
+|        | CM4    | 99.99%      | 7.14e-5     | 3.00e-9     |
+| 50 us  | PC     | 66.70%      | 1.56e-4     | 1.50e-4     |
+|        | CM4    | 99.99%      | N/A         | N/A         |
 
-**Jitter comparision**
-![delay](data/tsn_multihop/06_compare_jitter.png)
+**Delay on different NIC**
 
-**Throughput comparision**
+![delay](test/tsn_multihop/06_compare_delay.png)
 
-Note: It is clear to see that some packets are lost or delayed when frequency is high for sigel traffic.
-
-![delay](data/qdisc_performance/first_80000.png)
-
-![delay](data/qdisc_performance/first_2000.png)
-
-More results can be found in the data folder.
-
+**Jitter on different NIC**
+![delay](test/tsn_multihop/06_compare_jitter.png)
 
 ## 4. Future work
 - Determining the cause of the ETF scheduler's inability to support high bandwidth. Its inability to enable out-of-order scheduling could be one of the causes. For instance, packet $f 1$ is planned to transmit at time $t 3$ at time $t 1$ while packet $f 2$ is scheduled to send at time $t_4$ at time $t_2$. When $t_2$ > $t_1$ and $t_4$ < $t_3$, the system crashes.
