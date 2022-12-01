@@ -1,14 +1,3 @@
-ptp4l[92563.302]: selected /dev/ptp1 as PTP clock
-ptp4l[92563.359]: port 1 (enp5s0): INITIALIZING to LISTENING on INIT_COMPLETE
-ptp4l[92563.360]: port 0 (/var/run/ptp4l): INITIALIZING to LISTENING on INIT_COMPLETE
-ptp4l[92563.360]: port 0 (/var/run/ptp4lro): INITIALIZING to LISTENING on INIT_COMPLETE
-ptp4l[92566.371]: port 1 (enp5s0): LISTENING to MASTER on ANNOUNCE_RECEIPT_TIMEOUT_EXPIRES
-ptp4l[92566.371]: selected local clock 6cb311.fffe.52a303 as best master
-ptp4l[92566.371]: port 1 (enp5s0): assuming the grand master role
-ptp4l[92567.265]: port 1 (enp5s0): new foreign master 008082.fffe.865e74-1
-ptp4l[92569.265]: selected best master clock 008082.fffe.865e74
-ptp4l[92569.265]: port 1 (enp5s0): MASTER to UNCALIBRATED on RS_SLAVE
-ptp4l[92569.551]: port 1 (enp5s0): UNCALIBRATED to SLAVE on MASTER_CLOCK_SELECTED
 ptp4l[92570.301]: rms  596 max  799 freq +12127 +/- 383 delay    30 +/-   0
 ptp4l[92571.302]: rms  111 max  169 freq +11754 +/- 152 delay    30 +/-   0
 ptp4l[92572.302]: rms  186 max  197 freq +11416 +/-  53 delay    30 +/-   0

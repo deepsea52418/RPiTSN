@@ -134,6 +134,12 @@ Materials can be found at:
 
 ## 3. Experiment Result
 
+**Synchronization**
+
+
+![local](test/cm4/sync_local.png)
+![out](test/cm4/sync_utral.png)
+
 
 **Jitter on different End-Station**
 
@@ -152,7 +158,14 @@ Materials can be found at:
 | 50 us  | PC     | 66.70%      | 1.56e-4     | 1.50e-4     |
 |        | CM4    | 99.99%      | N/A         | N/A         |
 
-**Delay on different NIC**
+![1hz](test/cm4/1hz_jitter.png)
+![10hz](test/cm4/10hz_jitter.png)
+![100hz](test/cm4/100hz_jitter.png)
+![1000hz](test/cm4/1000hz_jitter.png)
+
+
+
+**E2E delay on different NIC**
 
 ![delay](test/tsn_multihop/06_compare_delay.png)
 
@@ -170,6 +183,13 @@ Materials can be found at:
   Instead of purely using the ETF scheduler, you are allowed to experiment with other strategies like DPDK or OpenFlow.
 
 - Find a means to accommodate more traffic in multiple periods simultaneously, such as three traffics with periods of 50000Hz, 30000Hz, and 70000Hz; ideally, the overall frequency should be greater than 100000 Hz.
+
+
+## TODO
+1. Wrap up the code as a normal cpp application
+2. Finish the synchronization test result
+3. Improve this read me and make it better
+4. Do more comprehensive experiment on e2e delay
 
 
 
