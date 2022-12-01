@@ -1,5 +1,5 @@
 # RPiTSN
-A low-cost and easy-to-get alternative of RaspberryPi Real-Time HAT for deterministic communication.
+A low-cost and easy-to-build alternative of RaspberryPi Real-Time HAT for deterministic communication.
 
 ## 1. Introduction
 
