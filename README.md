@@ -1,5 +1,5 @@
-# TSN-EndSystem
-The ultra-low latency periodic Ethernet communication based on Linux
+# RPiTSN
+A low-cost and easy-to-get alternative of RaspberryPi Real-Time HAT for deterministic communication.
 
 ## 1. Introduction
 
