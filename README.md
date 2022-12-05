@@ -1,5 +1,5 @@
-# TSN-EndSystem
-The ultra-low latency periodic Ethernet communication based on Linux
+# RPiTSN
+A low-cost and easy-to-build alternative of RaspberryPi Real-Time HAT for deterministic communication.
 
 ## 1. Introduction
 
@@ -7,8 +7,9 @@ The ultra-low latency periodic Ethernet communication based on Linux
 
 ### 2.1 Equipments
 
-- 2 * [Network Adapter(NIC) with Intel I210 Controller](https://www.amazon.com/ipolex-Single-Port-Gigabit-Ethernet-Converged/dp/B0728289M7/ref=sr_1_4?crid=1RXZWJCF4YJG0&keywords=i210&qid=1663721874&sprefix=i210%2Caps%2C138&sr=8-4) 
-- 2 * Dell Linux Station 
+- 1 * [Network Adapter(NIC) with Intel I210 Controller](https://www.amazon.com/ipolex-Single-Port-Gigabit-Ethernet-Converged/dp/B0728289M7/ref=sr_1_4?crid=1RXZWJCF4YJG0&keywords=i210&qid=1663721874&sprefix=i210%2Caps%2C138&sr=8-4) 
+- 1 * RaspberryPi CM4
+- 1 * RaspberryPi IO board
 - 1 * Ethernet CAT8 Cable
 
 There are several reasons that we choose i210 NIC that you can find in the following links:
@@ -134,7 +135,6 @@ Materials can be found at:
 
 ## 3. Experiment Result
 
-![1hz](test/cm4/1hz_jitter.pdf)
 
 **Jitter on different End-Station**
 
@@ -153,7 +153,14 @@ Materials can be found at:
 | 50 us  | PC     | 66.70%      | 1.56e-4     | 1.50e-4     |
 |        | CM4    | 99.99%      | N/A         | N/A         |
 
-**Delay on different NIC**
+![1hz](test/cm4/1hz_jitter.png)
+![10hz](test/cm4/10hz_jitter.png)
+![100hz](test/cm4/100hz_jitter.png)
+![1000hz](test/cm4/1000hz_jitter.png)
+
+
+
+**E2E delay on different NIC**
 
 ![delay](test/tsn_multihop/06_compare_delay.png)
 
@@ -161,6 +168,8 @@ Materials can be found at:
 ![delay](test/tsn_multihop/06_compare_jitter.png)
 
 ## 4. Future work
+- A more comprehensive performance valiadation is required to be done with a realistic TSN testbed.
+
 - Determining the cause of the ETF scheduler's inability to support high bandwidth. Its inability to enable out-of-order scheduling could be one of the causes. For instance, packet $f 1$ is planned to transmit at time $t 3$ at time $t 1$ while packet $f 2$ is scheduled to send at time $t_4$ at time $t_2$. When $t_2$ > $t_1$ and $t_4$ < $t_3$, the system crashes.
 
 - Discover a method to support a single traffic with a frequency of 200000Hz that satisfies the following conditions: :
@@ -172,5 +181,24 @@ Materials can be found at:
 
 - Find a means to accommodate more traffic in multiple periods simultaneously, such as three traffics with periods of 50000Hz, 30000Hz, and 70000Hz; ideally, the overall frequency should be greater than 100000 Hz.
 
+- Wrap-up the code and make it a easy-to-use solfware like `netcat`.
+
+- Create a Ubuntu image for preinstalled environment e.g., igb driver, tc configuration and PTP stack.
+
+- Improve the documentation work.
+
+
+## Citation
+
+```
+@misc{RPiTSN,
+  title={{RPiTSN}: Deterministic End-system for TSN},
+  url={https://github.com/ChuanyuXue/RPiTSN},
+  note={Open source software available from https://github.com/ChuanyuXue/RPiTSN},
+  author={
+    Chuanyu Xue},
+  year={2022-2022},
+}
+```
 
 
