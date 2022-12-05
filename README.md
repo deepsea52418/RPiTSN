@@ -7,8 +7,9 @@ A low-cost and easy-to-build alternative of RaspberryPi Real-Time HAT for determ
 
 ### 2.1 Equipments
 
-- 2 * [Network Adapter(NIC) with Intel I210 Controller](https://www.amazon.com/ipolex-Single-Port-Gigabit-Ethernet-Converged/dp/B0728289M7/ref=sr_1_4?crid=1RXZWJCF4YJG0&keywords=i210&qid=1663721874&sprefix=i210%2Caps%2C138&sr=8-4) 
-- 2 * Dell Linux Station 
+- 1 * [Network Adapter(NIC) with Intel I210 Controller](https://www.amazon.com/ipolex-Single-Port-Gigabit-Ethernet-Converged/dp/B0728289M7/ref=sr_1_4?crid=1RXZWJCF4YJG0&keywords=i210&qid=1663721874&sprefix=i210%2Caps%2C138&sr=8-4) 
+- 1 * RaspberryPi CM4
+- 1 * RaspberryPi IO board
 - 1 * Ethernet CAT8 Cable
 
 There are several reasons that we choose i210 NIC that you can find in the following links:
