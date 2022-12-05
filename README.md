@@ -174,6 +174,8 @@ Materials can be found at:
 ![delay](test/tsn_multihop/06_compare_jitter.png)
 
 ## 4. Future work
+- A more comprehensive performance valiadation is required to be done with a realistic TSN testbed.
+
 - Determining the cause of the ETF scheduler's inability to support high bandwidth. Its inability to enable out-of-order scheduling could be one of the causes. For instance, packet $f 1$ is planned to transmit at time $t 3$ at time $t 1$ while packet $f 2$ is scheduled to send at time $t_4$ at time $t_2$. When $t_2$ > $t_1$ and $t_4$ < $t_3$, the system crashes.
 
 - Discover a method to support a single traffic with a frequency of 200000Hz that satisfies the following conditions: :
@@ -185,12 +187,11 @@ Materials can be found at:
 
 - Find a means to accommodate more traffic in multiple periods simultaneously, such as three traffics with periods of 50000Hz, 30000Hz, and 70000Hz; ideally, the overall frequency should be greater than 100000 Hz.
 
+- Wrap-up the code and make it a easy-to-use solfware like `netcat`.
 
-## TODO
-1. Wrap up the code as a normal cpp application
-2. Finish the synchronization test result
-3. Improve this read me and make it better
-4. Do more comprehensive experiment on e2e delay
+- Create a Ubuntu image for preinstalled environment e.g., igb driver, tc configuration and PTP stack.
+
+- Improve the documentation work.
 
 
 ## Citation
