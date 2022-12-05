@@ -193,4 +193,15 @@ Materials can be found at:
 4. Do more comprehensive experiment on e2e delay
 
 
+## Citation
+
+@misc{RPiTSN,
+  title={{RPiTSN}: Deterministic End-system for TSN},
+  url={https://github.com/ChuanyuXue/RPiTSN},
+  note={Open source software available from https://github.com/ChuanyuXue/RPiTSN},
+  author={
+    Chuanyu Xue},
+  year={2022-2022},
+}
+
 
