@@ -134,6 +134,7 @@ Materials can be found at:
 
 ## 3. Experiment Result
 
+![1hz](test/cm4/1hz_jitter.pdf)
 
 **Jitter on different End-Station**
 
