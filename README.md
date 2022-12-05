@@ -195,6 +195,7 @@ Materials can be found at:
 
 ## Citation
 
+```
 @misc{RPiTSN,
   title={{RPiTSN}: Deterministic End-system for TSN},
   url={https://github.com/ChuanyuXue/RPiTSN},
@@ -203,5 +204,6 @@ Materials can be found at:
     Chuanyu Xue},
   year={2022-2022},
 }
+```
 
 
