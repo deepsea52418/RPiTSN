@@ -1,7 +1,11 @@
 # RPiTSN
 A low-cost and easy-to-build alternative of RaspberryPi Real-Time HAT for deterministic communication.
 
+<img src="/Volumes/Portable/Users/chuanyu/Code/RPiTSN/rpi-figure.png" alt="rpi" style="zoom: 15%;" />
+
 ## 1. Introduction
+
+
 
 ## 2. Testbed Setup
 
@@ -133,7 +137,7 @@ Materials can be found at:
 - [Source code](https://github.com/ChuanyuXue/TSN-EndSystem/tree/main/src).
 - [Linux Kernal Archives: HW timestamp](https://www.kernel.org/doc/Documentation/networking/timestamping.txt).
 
-## 3. Experiment Result
+## 3. Performance Evaluation
 
 
 **Jitter on different End-Station**
@@ -200,5 +204,4 @@ Materials can be found at:
   year={2022-2022},
 }
 ```
-
 
