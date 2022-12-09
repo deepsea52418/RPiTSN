@@ -31,12 +31,13 @@
 #endif
 
 #define BUFFER_LEN 256
+// #define BUFFER_LEN 10
 #define HW_FLAG 1
 
 #define USE_TXTIME 1
 #define DEFAULT_PRIORITY 3
 #define TIME_DELTA 1000000
-#define PERIOD 1000000000
+#define PERIOD 10000
 #define ONESEC 1000000000ULL
 
 #define DEADLINE_MODE 0

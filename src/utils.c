@@ -78,6 +78,8 @@ int setup_sender_sotime(int fd, const char *dev_name)
         die("setsockopt() Priority");
     }
 
+    // Dec5: Chuanyu Modification -> Remove so_bindtodevice, let linux decide to use which interface.
+    // Doesn't work. Revert the modification.
     if (setsockopt(fd, SOL_SOCKET, SO_BINDTODEVICE, dev_name, strlen(dev_name)))
     {
         die("setsockopt() Bind to dev");
